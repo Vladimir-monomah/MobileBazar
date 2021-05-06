@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileBazar.Entities", "Mob
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileBazar.Database", "MobileBazar.Database\MobileBazar.Database.csproj", "{46792F73-4745-4A52-8C62-247738015357}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileBazar.Services", "MobileBazar.Services\MobileBazar.Services.csproj", "{49CABCE2-55B6-49FA-AE98-72322ACD9873}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{46792F73-4745-4A52-8C62-247738015357}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{46792F73-4745-4A52-8C62-247738015357}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{46792F73-4745-4A52-8C62-247738015357}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49CABCE2-55B6-49FA-AE98-72322ACD9873}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49CABCE2-55B6-49FA-AE98-72322ACD9873}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49CABCE2-55B6-49FA-AE98-72322ACD9873}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49CABCE2-55B6-49FA-AE98-72322ACD9873}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

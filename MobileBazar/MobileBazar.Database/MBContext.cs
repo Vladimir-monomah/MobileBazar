@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MobileBazar.Database
 {
-    public class MBContext:DbContext
+    public class MBContext:DbContext,IDisposable
     {
         public MBContext():base("MobileBazarConnection")
         {

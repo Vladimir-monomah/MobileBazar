@@ -1,0 +1,16 @@
+﻿@model MobileBazar.Entities.Category
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Удаление категории товара</h2>
+
+<h1>Вы уверены, что хотите удалить данную категорию?</h1>
+
+<form method="post">
+    <input type="hidden" name="ID" value="@Model.ID" />
+    <button type="submit">Да, удалить</button>
+</form>
+
+<a href="/Index">Отмена</a>

@@ -41,6 +41,31 @@ namespace MobileBazar.Web.Controllers
         public ActionResult Create(Product product)
         {
             this.productsService.SaveProduct(product);
+
+            return this.RedirectToAction("ProductTable");
+        }
+
+        [HttpGet]
+        public ActionResult Edit(int ID)
+        {
+            var product = productsService.GetProduct(ID);
+
+            return this.PartialView(product);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(Product product)
+        {
+            this.productsService.UpdateProduct(product);
+
+            return this.RedirectToAction("ProductTable");
+        }
+
+        [HttpPost]
+        public ActionResult Delete(int ID)
+        {
+            this.productsService.DeleteProduct(ID);
+
             return this.RedirectToAction("ProductTable");
         }
     }

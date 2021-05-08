@@ -2,20 +2,18 @@
 @{
     ViewBag.Title = "ProductTable";
 }
-
 <div>
     <form method="post">
         <input id="searchTxt" name="Search" />
         <button type="button" id="searchBtn">Поиск</button>
     </form>
-    <button type="button" id="newBtn">Новый</button>
+    <button type="button" id="newBtn">Новый товар</button>
 </div>
-
 <div>
     <table>
         <thead>
             <tr>
-                <td>Назание товара</td>
+                <td>Название товара</td>
                 <td>Категория</td>
                 <td>Цена</td>
                 <td>Действие</td>
@@ -29,8 +27,8 @@
                     <td>-</td>
                     <td>@product.Price</td>
                     <td>
-                        <button>Редактировать</button>
-                        <button>Удалить</button>
+                        <button class="editBtn" data-id="@product.ID">Редактировать</button>
+                        <button class="deleteBtn" data-id="@product.ID">Удалить</button>
                     </td>
                 </tr>
             }
@@ -50,10 +48,58 @@
             }
         })
             .done(function (response) {
-                $("tableContiner").html(response)
+                $("#tableContiner").html(response);
             })
             .fail(function (XMLHttpRequest, textStatus, errorThrown) {
-                alert("FAIL")
+                alert("FAIL");
             });
+    });
+
+    $("#newBtn").click(function () {
+        $.ajax({
+            url: '/Product/Create',
+        })
+            .done(function (response) {
+                $("#actionContainer").html(response);
+            })
+            .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+                alert("FAIL");
+            });
+    });
+
+    $(".editBtn").click(function () {
+        $.ajax({
+            url: '/Product/Edit',
+            data: {
+                ID: $(this).attr('data-id')
+            }
+        })
+            .done(function (response) {
+                $("#actionContainer").html(response);
+            })
+            .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+                alert("FAIL");
+            });
+    });
+
+    $(".deleteBtn").click(function () {
+
+        var confirmDelete = confirm("Вы дейсвительно хотите удалить данный товар?");
+
+        if (confirmDelete) {
+            $.ajax({
+                type: 'POST',
+                url: '/Product/Delete',
+                data: {
+                    ID: $(this).attr('data-id')
+                }
+            })
+                .done(function (response) {
+                    $("#tableContiner").html(response);
+                })
+                .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert("FAIL");
+                });
+        }
     });
 </script>
